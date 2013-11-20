@@ -4,14 +4,21 @@
   <title>Lf</title>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  	<%= csrf_meta_tags %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
 	<div class="container">
 		<%= yield %>
 	</div>
-
+	
+	<div class="col-md-6 col-md-offset-3">
+		<%= yield :countdown %>
+	</div>
+	
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	
 </body>
 </html>
+

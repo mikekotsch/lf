@@ -27,3 +27,42 @@
 
 <%= link_to 'Edit', edit_countdown_path(@countdown) %> |
 <%= link_to 'Back', countdowns_path %>
+
+
+<% content_for :countdown do %>
+  
+	<script type='text/javascript'>
+		
+		var count = '<%= @countdown.time.to_i %>';
+		var now = Math.round(new Date().getTime() / 1000);
+		var days, hours, minutes, seconds,tmp;
+		
+		var timer = $.timer(
+			function() {
+				tmp = count-now;
+				if(tmp <=0 ) {
+					$('.count').html('<tr><th>This event is over.</th></tr>');
+				}
+				else {
+					seconds = tmp % 60;
+					if (seconds < 10) {
+						seconds = '0'+seconds;
+					}
+					minutes = Math.floor(tmp/60) % 60;
+					if (minutes < 10) {
+						minutes = '0'+minutes;
+					}
+					hours 	= Math.floor(tmp/60/60) % 24;
+					if (hours < 10) {
+						hours = '0'+hours;
+					}
+					days		= Math.floor(tmp/60/60/24);
+					
+					$('.count').html('<tr><th>'+days+'</th><th>:</th><th>'+hours+'</th><th>:</th><th>'+minutes+'</th><th>:</th><th>'+seconds+'</th></tr><tr><td>Days</td><td></td><td>Hours</td><td></td><td>Minutes</td><td></td><td>Seconds</td></tr>');
+				}
+				count--;
+			}, 1000, true
+		);
+    
+  </script>
+<% end %>
