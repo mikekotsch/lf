@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lf</title>
-	<%= stylesheet_link_tag    "application", :media => "all" %>
+  	<%= yield :pagetitle %>
+	<%= stylesheet_link_tag "application", :media => "all" %>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
-
+	
+	<%= yield :background %>
+	
+	<div class="jumbotron" id="jumbotron">
+		<div class="container text-center">
+			<!-- <%= yield %> -->
+			
+			<h1 class="text-center title"><strong><%= yield :title %></strong><%= yield :link %></h1>
+			
+			<%= yield :countdown %>
+			
+			<div id="countdown" class="text-center">
+				<table border="0" id="countdown-table" class="table table-condensed table-nonfluid count">
+										
+				</table>
+			</div>
+			
+			
+			
+			<!-- <div id="buttons">
+				<%= yield :buttons %>
+			</div> -->
+			
+		</div>
+	</div>
+	
 	<div class="container">
 		<%= yield %>
 	</div>
@@ -18,6 +43,11 @@
 	</div>
 	
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		var height = $(window).height(); 
+		$("#jumbotron").height(height);
+	</script>
 	
 </body>
 </html>
