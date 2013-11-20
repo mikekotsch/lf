@@ -1,0 +1,35 @@
+<h1>Listing countdowns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Time</th>
+      <th>Image</th>
+      <th>Description</th>
+      <th>Link</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @countdowns.each do |countdown| %>
+      <tr>
+        <td><%= countdown.title %></td>
+        <td><%= link_to image_tag(countdown.image_url, :height => 30), countdown.image_url %></td>
+		<td><%= countdown.time %></td>
+        <td><%= countdown.description %></td>
+        <td><%= countdown.link %></td>
+        <td><%= link_to 'Show', countdown, :class => "btn btn-default btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_countdown_path(countdown), :class => "btn btn-default btn-sm" %></td>
+        <td><%= link_to 'Destroy', countdown, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-sm' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Countdown', new_countdown_path %>

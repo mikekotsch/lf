@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @countdown.title %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @countdown.time %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@countdown.image_url, :width => 600) if @countdown.image.present? %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @countdown.description %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @countdown.link %>
+</p>
+
+<%= link_to 'Edit', edit_countdown_path(@countdown) %> |
+<%= link_to 'Back', countdowns_path %>
