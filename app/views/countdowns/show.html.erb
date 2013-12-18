@@ -52,8 +52,11 @@
 						hours = '0'+hours;
 					}
 					days		= Math.floor(tmp/60/60/24);
+					if (days < 10) {
+						days = '0'+days;
+					}
 					
-					$('.count').html('<tr><th>'+days+'</th><th>:</th><th>'+hours+'</th><th>:</th><th>'+minutes+'</th><th>:</th><th>'+seconds+'</th></tr><tr><td>Days</td><td></td><td>Hours</td><td></td><td>Minutes</td><td></td><td>Seconds</td></tr>');
+					$('.count').html('<tr><th>'+days+'</th><th>:</th><th>'+hours+'</th><th>:</th><th>'+minutes+'</th><th>:</th><th>'+seconds+'</th></tr>');
 				}
 				count--;
 			}, 1000, true

@@ -14,6 +14,7 @@
 
 body {
 	color: #eee !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 .btn-danger, .btn-success {
 	color: #fff !important;
@@ -41,8 +42,8 @@ body {
 	font-size: 3em;
 }
 .table th, .table td { 
-     border: none !important;
-		 padding: 0 !important;
+    border: none !important;
+	padding: 0 5px !important;
  }
 .table-nonfluid {
    width: auto !important;;

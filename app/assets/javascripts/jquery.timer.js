@@ -26,7 +26,7 @@
  * SOFTWARE.
  */
 
-;(function($) {
+(function($) {
 	$.timer = function(func, time, autostart) {	
 	 	this.set = function(func, time, autostart) {
 	 		this.init = true;
